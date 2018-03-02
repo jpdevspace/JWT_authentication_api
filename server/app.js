@@ -4,8 +4,10 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const router = require('./routes/router');
 const config = require('./config/config');
+
 
 const app = express()
 
@@ -16,6 +18,9 @@ mongoose.connect(config.database);
 // App Setup
 // Middleware: Morgan
 app.use(morgan('combined'));
+
+// Allow CORS
+app.use(cors());
 
 // Middleware: Body-Parser
 app.use(bodyParser.urlencoded({ extended: false }));

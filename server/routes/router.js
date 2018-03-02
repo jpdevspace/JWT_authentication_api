@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/protected', requireAuth, (req, res) => {
-    res.send({ auth: 'You are authenticated' })
+    res.send({ message: 'You are authenticated' })
 })
 
 router.post('/signin', requireSignin, Authentication.signin);
